@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+	<TestRunParameters>
+		<Parameter name="username" value="admin" />
+		<Parameter name="password" value="password" />
+		<Parameter name="home_url" value="http://eaapp.somee.com/" />
+		<Parameter name="google_url" value="https://google.com/" />
+	</TestRunParameters>
+</RunSettings>
