@@ -23,5 +23,11 @@ namespace DotnetSelenium
             driver.FindElement(locator).Submit();
         }
 
+
+        public static void Dropdown()
+        {
+            //Add Method for dropdown
+        }
+
     }
 }
