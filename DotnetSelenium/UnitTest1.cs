@@ -63,10 +63,13 @@ namespace DotnetSelenium
         {
             driver.Navigate().GoToUrl("https://admlucid.com/Home/WebElements");
 
-            var selectElement = driver.FindElement(By.Name("Service"));
-            var select = new SelectElement(selectElement);
+            //var selectElement = driver.FindElement(By.Name("Service"));
+            //var select = new SelectElement(selectElement);
 
-            select.SelectByText("Interest Classes");
+            // select.SelectByText("Interest Classes");
+
+           SeleniumCustomMethods.DropdownSelect(driver, By.Name("Service"), "Child Care");
+            Thread.Sleep(2000);
 
         }
 

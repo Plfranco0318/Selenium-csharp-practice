@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace DotnetSelenium
 {
@@ -24,9 +25,12 @@ namespace DotnetSelenium
         }
 
 
-        public static void Dropdown()
+        public static void DropdownSelect(IWebDriver driver, By locator, string dropdownElement)
         {
-            //Add Method for dropdown
+            IWebElement element = driver.FindElement(locator);
+            var select = new SelectElement(element);
+
+            select.SelectByText(dropdownElement);
         }
 
     }
