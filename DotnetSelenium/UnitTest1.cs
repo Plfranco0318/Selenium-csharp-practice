@@ -1,13 +1,12 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
 
 namespace DotnetSelenium
 {
     public class Tests
     {
         IWebDriver driver;
-        
+
         public string homeurl;
         private string userName;
         private string passWord;
@@ -18,7 +17,7 @@ namespace DotnetSelenium
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
-            
+
             homeurl = TestContext.Parameters["home_url"];
             userName = TestContext.Parameters["username"];
             passWord = TestContext.Parameters["password"];
@@ -27,10 +26,10 @@ namespace DotnetSelenium
         }
 
         [Test]
-        public void GoogleChromeTest()  
-        { 
+        public void GoogleChromeTest()
+        {
             driver.Navigate().GoToUrl(google_url);
-            
+
             IWebElement SearchInput = driver.FindElement(By.Name("q"));
             SearchInput.SendKeys("Panda"); SearchInput.SendKeys(Keys.Return);
         }
@@ -58,8 +57,8 @@ namespace DotnetSelenium
         }
 
         [Test]
-        public void WorkingWithDropdown() 
-        
+        public void WorkingWithDropdown()
+
         {
             driver.Navigate().GoToUrl("https://admlucid.com/Home/WebElements");
 
@@ -68,10 +67,24 @@ namespace DotnetSelenium
 
             // select.SelectByText("Interest Classes");
 
-           SeleniumCustomMethods.DropdownSelect(driver, By.Name("Service"), "Child Care");
+            SeleniumCustomMethods.DropdownSelectText(driver, By.Name("Service"), "Child Care");
             Thread.Sleep(2000);
 
         }
+
+        [Test]
+        public void WorkingWithMultiSelect()
+        {
+            driver.Navigate().GoToUrl("http://techcanvass.com/Examples/multi-select.html?srsltid=AfmBOooTCNQ_9agzVrgNwtPIp5OizxHGZ6q9TKHskqtC_t-mgvbVVAEs");
+
+            SeleniumCustomMethods.MultiSelect(driver, By.Id("multiselect"), ["volvo", "suzuki", "opel", "hyundai", "audi", "honda"]);
+            Thread.Sleep(2000);
+
+            var getSelectedOptions = SeleniumCustomMethods.GetAllSelectedList(driver, By.Id("multiselect"));
+
+            getSelectedOptions.ForEach(Console.WriteLine);
+        }
+
 
 
         [TearDown]
