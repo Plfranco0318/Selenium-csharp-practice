@@ -1,5 +1,6 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using DotnetSelenium.Pages;
 
 namespace DotnetSelenium
 {
@@ -11,6 +12,7 @@ namespace DotnetSelenium
         private string userName;
         private string passWord;
         private string google_url;
+        private string ehrurl;
 
         [SetUp]
         public void Setup()
@@ -22,6 +24,7 @@ namespace DotnetSelenium
             userName = TestContext.Parameters["username"];
             passWord = TestContext.Parameters["password"];
             google_url = TestContext.Parameters["google_url"];
+            ehrurl = TestContext.Parameters["ehr_url"];
 
         }
 
@@ -85,6 +88,20 @@ namespace DotnetSelenium
             getSelectedOptions.ForEach(Console.WriteLine);
         }
 
+
+        [Test]
+
+        public void WorkingWithPom()
+        {
+            driver.Navigate().GoToUrl(homeurl);
+
+            LoginPage loginPage = new LoginPage(driver);
+
+            loginPage.ClickLogin();
+            loginPage.Login(userName, passWord);
+
+
+        }
 
 
         [TearDown]
