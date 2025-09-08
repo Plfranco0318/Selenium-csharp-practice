@@ -7,22 +7,28 @@ namespace DotnetSelenium
     public class SeleniumCustomMethods
     {
 
-        public static void Click(IWebDriver driver, By locator)
+        public static void Click(IWebElement locator)
         {
-            driver.FindElement(locator).Click();
+            locator.Click();
         }
 
-        public static void EnterText(IWebDriver driver, By locator, string text)
+
+        public static void Submit(IWebElement locator)
         {
-            driver.FindElement(locator).Clear();
-            driver.FindElement(locator).Click();
-            driver.FindElement(locator).SendKeys(text);
+            locator.Submit();
+        }
+
+        public static void EnterText(IWebElement locator, string text)
+        {
+            locator.Clear();
+            locator.Click();
+            locator.SendKeys(text);
 
         }
 
-        public static void Submit(IWebDriver driver, By locator)
+        public static void SubmitForm(IWebElement locator)
         {
-            driver.FindElement(locator).Submit();
+            locator.Submit();
         }
 
 

@@ -1,9 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DotnetSelenium.Pages
 {
@@ -25,14 +20,16 @@ namespace DotnetSelenium.Pages
 
         public void ClickLogin()
         {
-            Loginlink.Click(); 
+            SeleniumCustomMethods.Click(Loginlink);
         } 
 
         public void Login(string username, string password)
         {
-            UsernameTxt.SendKeys(username);
-            PasswordTxt.SendKeys(password);
-            BtnLogin.Click();
+            SeleniumCustomMethods.EnterText(UsernameTxt, username);
+            SeleniumCustomMethods.EnterText(PasswordTxt, password);
+
+            //BtnLogin.Click();
+            SeleniumCustomMethods.SubmitForm(BtnLogin);
         }
     }
 }

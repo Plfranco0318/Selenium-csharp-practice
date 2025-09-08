@@ -2,7 +2,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using DotnetSelenium.Pages;
 
-namespace DotnetSelenium
+namespace DotnetSelenium.Tests
 {
     public class Tests
     {
@@ -42,10 +42,10 @@ namespace DotnetSelenium
         {
             driver.Navigate().GoToUrl(homeurl);
 
-            SeleniumCustomMethods.Click(driver, By.Id("loginLink"));
-            SeleniumCustomMethods.EnterText(driver, By.Id("UserName"), userName);
-            SeleniumCustomMethods.EnterText(driver, By.Name("Password"), passWord);
-            SeleniumCustomMethods.Submit(driver, By.Id("loginIn"));
+            SeleniumCustomMethods.Click(Loginlink)
+            SeleniumCustomMethods.EnterText(By.Id("UserName"), userName);
+            SeleniumCustomMethods.EnterText(By.Name("Password"), passWord);
+            SeleniumCustomMethods.Submit(By.Id("loginIn"));
 
 
             //IWebElement LoginBtn = driver.FindElement(By.Id("loginLink"));
@@ -99,7 +99,6 @@ namespace DotnetSelenium
 
             loginPage.ClickLogin();
             loginPage.Login(userName, passWord);
-
 
         }
 
