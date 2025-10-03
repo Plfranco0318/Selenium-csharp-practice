@@ -18,18 +18,32 @@ namespace DotnetSelenium.Pages
 
         IWebElement BtnLogin => driver.FindElement(By.Id("loginIn"));
 
+        IWebElement LoginTxt => driver.FindElement(By.XPath("//div/h2"));
+
         public void ClickLogin()
         {
-            SeleniumCustomMethods.Click(Loginlink);
+            Loginlink.ClickElement();
         } 
+
+
+        public void CheckLogin()
+        {
+            string AssertText = LoginTxt.Text;
+            Console.WriteLine(AssertText);
+        }
+
 
         public void Login(string username, string password)
         {
-            SeleniumCustomMethods.EnterText(UsernameTxt, username);
-            SeleniumCustomMethods.EnterText(PasswordTxt, password);
+            //SeleniumCustomMethods.EnterText(UsernameTxt, username);
+            //SeleniumCustomMethods.EnterText(PasswordTxt, password);
 
-            //BtnLogin.Click();
-            SeleniumCustomMethods.SubmitForm(BtnLogin);
+            ////BtnLogin.Click();
+            //SeleniumCustomMethods.SubmitForm(BtnLogin);
+
+            UsernameTxt.EnterText(username);
+            PasswordTxt.EnterText(password);
+            BtnLogin.SubmitElement();
         }
     }
 }

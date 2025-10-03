@@ -4,21 +4,21 @@ using OpenQA.Selenium.Support.UI;
 
 namespace DotnetSelenium
 {
-    public class SeleniumCustomMethods
+    public static class SeleniumCustomMethods
     {
 
-        public static void Click(IWebElement locator)
+        public static void ClickElement(this IWebElement locator)
         {
             locator.Click();
         }
 
 
-        public static void Submit(IWebElement locator)
+        public static void SubmitElement(this IWebElement locator)
         {
             locator.Submit();
         }
 
-        public static void EnterText(IWebElement locator, string text)
+        public static void EnterText(this IWebElement locator, string text)
         {
             locator.Clear();
             locator.Click();
@@ -26,7 +26,7 @@ namespace DotnetSelenium
 
         }
 
-        public static void SubmitForm(IWebElement locator)
+        public static void SubmitForm(this IWebElement locator)
         {
             locator.Submit();
         }

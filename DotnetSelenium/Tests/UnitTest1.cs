@@ -42,10 +42,10 @@ namespace DotnetSelenium.Tests
         {
             driver.Navigate().GoToUrl(homeurl);
 
-            SeleniumCustomMethods.Click(Loginlink)
-            SeleniumCustomMethods.EnterText(By.Id("UserName"), userName);
-            SeleniumCustomMethods.EnterText(By.Name("Password"), passWord);
-            SeleniumCustomMethods.Submit(By.Id("loginIn"));
+            //SeleniumCustomMethods.ClickLogin("LoginLink");
+            //SeleniumCustomMethods.EnterText("UserName", userName);
+            //SeleniumCustomMethods.EnterText(By.Name("Password"), passWord);
+            //SeleniumCustomMethods.Submit(By.Id("loginIn"));
 
 
             //IWebElement LoginBtn = driver.FindElement(By.Id("loginLink"));
